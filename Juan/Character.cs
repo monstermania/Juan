@@ -24,6 +24,7 @@ namespace Juan
             HP = maxHP;
             name = "ERROR 404";
             abilities = new Ability[] { new Ability(), new Ability(), new Ability(), new Ability() };
+            setupAbilities();
         }
 
         public Character(string n, int e, int hp)
@@ -39,6 +40,7 @@ namespace Juan
             maxHP = HP = hp;
             name = n;
             abilities = ab;
+            setupAbilities();
         }
 
         public void printAbilities()
@@ -49,6 +51,14 @@ namespace Juan
                 Console.WriteLine("\tCost: " + ability.cost);
                 Console.WriteLine("\tDamage: " + ability.damage);
                 Console.WriteLine("\tCooldown: " + ability.cooldown + " turns\n");
+            }
+        }
+
+        public void setupAbilities()
+        {
+            foreach(Ability ability in abilities)
+            {
+                ability.self = this;
             }
         }
 
@@ -65,6 +75,22 @@ namespace Juan
         static private void test()
         {
             Console.WriteLine("BARF");
+        }
+
+        public void damageTarget(int dmg)
+        {
+            this.target.damage(dmg);
+        }
+
+        public void damage(int dmg)
+        {
+            this.HP -= dmg;
+            if(this.HP <= 0)
+            {
+                //you got dead
+                Console.WriteLine("YOU GOT DEAD IDIOT");
+                System.Environment.Exit(1);
+            }
         }
     }
 }

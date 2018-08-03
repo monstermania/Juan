@@ -47,6 +47,7 @@
     <Compile Include="Character.cs" />
     <Compile Include="battle.cs" />
     <Compile Include="Genji.cs" />
+    <Compile Include="Zombie.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

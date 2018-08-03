@@ -6,11 +6,12 @@ namespace Juan
 {
     public class Ability
     {
+        public Character self;
         public string name;
         public int cost;
         public int cooldown;
         public int damage;
-        public Action executeTheAbility;
+        public Action abilityEffect;
 
         //Constructor
         public Ability()
@@ -29,9 +30,21 @@ namespace Juan
             cost = nrg;
             damage = dmg;
             cooldown = cd;
-            executeTheAbility = exec;
+            abilityEffect = exec;
         }
+        //y u hating...DYLAN!
 
-
+        public void useAbility()
+        {
+            if(self.energy >= cost)
+            {
+                self.energy -= cost;
+                abilityEffect();    
+            }
+            else
+            {
+                Console.WriteLine("Insufficient Energy to perform ability");
+            }
+        }
     }
 }

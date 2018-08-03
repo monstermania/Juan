@@ -2,22 +2,21 @@
 
 namespace Juan
 {
-    public class Genji : Character
+    public class Zombie : Character
     {
-        public Genji() : base("Genji", 10, 20)
+        public Zombie() : base("Zombie", 10, 20)
         {
-            Ability genjiSpecial = new Ability("Special", 9, 17, 6, new Action(test));
-            Ability shurikens = new Ability("shurikens", 3, 2, 1, new Action(test));
-            Ability swiftstrike = new Ability("swiftStrike", 4, 5, 2, new Action(SwiftStrike));
-            // work in progress!! - blueprints- cybernetic healing - heals 3 hp 
-            this.abilities = new Ability[] { swiftstrike, shurikens, genjiSpecial };
+            Ability zombieSpecial = new Ability("Special", 10, 19, 8, new Action(test));
+            Ability vommitShot = new Ability("vommit shot", 6, 7, 4, new Action(test));
+            Ability bite = new Ability("bite", 4, 3, 1, new Action(Bite));
+
+            this.abilities = new Ability[] { bite, vommitShot, zombieSpecial };
             setupAbilities();
         }
-
         //swiftstrike
         //5 dmg - 4 energy
         //1 dmg/3 turns
-        public void SwiftStrike()
+        public void Bite()
         {
             this.damageTarget(this.abilities[0].damage);
         }

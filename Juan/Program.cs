@@ -2,11 +2,18 @@
 
 namespace Juan
 {
+
+    //TODO:
+    ///----
+    ///make effects for turnns.
+    ///finish abilitiews for characters
+    ///make the dylan character
+    ///recharge energy
     class Program
     {
         static Character[] characters = new Character[2];
-        public  Character p1;
-        public  Character p2;
+        public static Character p1;
+        public  static Character p2;
 
         // 
 
@@ -17,8 +24,8 @@ namespace Juan
 
           //  SetupCharacters();
 
-            Character genji = new Character();
-            Character zombie = new Character();
+            Character genji = new Genji();
+            Character zombie = new Zombie();
         
 
               characters = new Character[] { genji, zombie};
@@ -61,10 +68,7 @@ namespace Juan
         //static private void setUpZombie()
         //{
         //    //Setup Zombie
-        //    Ability zombieSpecial = new Ability("Special", 10, 19, 8, new Action(test));
-        //    Ability vommitShot = new Ability("vommit shot", 6, 7, 4, new Action(test));
-        //    Ability bite = new Ability("bite", 4, 3, 1, new Action(test));
-        //    Character zombie = new Character("zombie", 10, 20, new Ability[] { bite, vommitShot, zombieSpecial });
+            
 
         //    characters[1] = zombie;
         //}
@@ -233,18 +237,8 @@ namespace Juan
                     int p1AbilityResponse = Int32.Parse(validateAbilityInput());
                     //to convert a stirn to an integer you have to write the integer int bob for example then an equal sign and then write Int32.Parse(Console.ReadLine)
 
-
                     Ability ability = p1.abilities[p1AbilityResponse - 1];  //save the chosen ability
-
-                    if (ability.cost <= p1.energy)//checks to see if we have enough energy
-                    {
-                        ability.executeTheAbility();    //use the ability
-                        p1.energy -= ability.cost;  //subtract the characters energy
-                    }
-                    else
-                    {
-                        Console.WriteLine("Insufficient Energy to perform ability");
-                    }
+                    ability.useAbility();    //use the ability
                 }
                 else
                 {
@@ -255,23 +249,11 @@ namespace Juan
                     int p2AbilityResponse = Int32.Parse(validateAbilityInput());
 
                     //to convert a stirn to an integer you have to write the integer int bob for example then an equal sign and then write Int32.Parse(Console.ReadLine)
-
-
                     Ability ability = p2.abilities[p2AbilityResponse - 1];  //save the chosen ability
-
-                    if (ability.cost <= p2.energy)//checks to see if we have enough energy
-                    {
-                        ability.executeTheAbility();    //use the ability
-                        p2.energy -= ability.cost;  //subtract the characters energy
-                    }
-                    else
-                    {
-                        Console.WriteLine("Insufficient Energy to perform ability");
-                    }
-
+                    ability.useAbility();    //use the ability
                 }
 
-                Console.ReadLine();
+                //Console.ReadLine();
                 p1Turn = !p1Turn;
             }
         }
