@@ -14,6 +14,9 @@ namespace Juan
         public int maxHP;
         public Ability[] abilities = new Ability[4];
         public Character target; //this is a property
+        public List<Effect> effects = new List<Effect>();
+       
+
 
         //like a function that allows us to fill a value
         public Character()

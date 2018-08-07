@@ -22,8 +22,8 @@ namespace Juan
             this.damageTarget(this.abilities[0].damage);
         }
 
-        public void test()
-        {
+        public void shurikens()
+        {//finish me!!
 
         }
 

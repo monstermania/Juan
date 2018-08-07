@@ -7,7 +7,6 @@ C:\Users\UCodeTorrance\Documents\Visual Studio 2015\Projects\Juan\Juan\obj\Debug
 C:\Users\Student\Desktop\Juan-master\Juan\bin\Debug\Juan.exe.config
 C:\Users\Student\Desktop\Juan-master\Juan\bin\Debug\Juan.exe
 C:\Users\Student\Desktop\Juan-master\Juan\bin\Debug\Juan.pdb
-C:\Users\Student\Desktop\Juan-master\Juan\obj\Debug\Juan.csprojAssemblyReference.cache
-C:\Users\Student\Desktop\Juan-master\Juan\obj\Debug\Juan.csproj.CoreCompileInputs.cache
 C:\Users\Student\Desktop\Juan-master\Juan\obj\Debug\Juan.exe
 C:\Users\Student\Desktop\Juan-master\Juan\obj\Debug\Juan.pdb
+C:\Users\Student\Desktop\Juan-master\Juan\obj\Debug\Juan.csprojResolveAssemblyReference.cache

@@ -39,6 +39,7 @@ namespace Juan
             if(self.energy >= cost)
             {
                 self.energy -= cost;
+                Console.WriteLine("Character " + self.name + " uses ability " + name);
                 abilityEffect();    
             }
             else

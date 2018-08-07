@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ability.cs" />
+    <Compile Include="Effect.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="battle.cs" />
     <Compile Include="Genji.cs" />

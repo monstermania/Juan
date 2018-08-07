@@ -9,6 +9,7 @@ namespace Juan
     ///finish abilitiews for characters
     ///make the dylan character
     ///recharge energy
+    /// make so u cant pick the sam eguy OR if u are going to pick the same guy it can t be in the same instance of the character in the static characters list maybe time to go not static
     class Program
     {
         static Character[] characters = new Character[2];

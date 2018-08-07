@@ -7,5 +7,6 @@ namespace Juan
 
     public class Effect
     {
+
     }
 }
