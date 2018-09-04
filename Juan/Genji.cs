@@ -6,11 +6,12 @@ namespace Juan
     {
         public Genji() : base("Genji", 10, 20)
         {
-            Ability genjiSpecial = new Ability("Special", 9, 17, 6, new Action(test));
-            Ability shurikens = new Ability("shurikens", 3, 2, 1, new Action(test));
+            Ability genjiSpecial = new Ability("Special", 9, 17, 6, new Action(GenjiSpecial));
+            Ability shurikens = new Ability("shurikens", 3, 2, 1, new Action(Shurikens));
             Ability swiftstrike = new Ability("swiftStrike", 4, 5, 2, new Action(SwiftStrike));
-            // work in progress!! - blueprints- cybernetic healing - heals 3 hp 
-            this.abilities = new Ability[] { swiftstrike, shurikens, genjiSpecial };
+            Ability cyberneticHealing = new Ability("cybernetic healing", 3, 0, 4, new Action(cyberHeals));
+            // work in progress!! - blueprints- cybernetic healing - heals 5 hp 
+            this.abilities = new Ability[] { swiftstrike, shurikens, genjiSpecial, cyberneticHealing };
             setupAbilities();
         }
 
@@ -22,11 +23,20 @@ namespace Juan
             this.damageTarget(this.abilities[0].damage);
         }
 
-        public void shurikens()
+        public void Shurikens()
         {//finish me!!
-
+            this.damageTarget(this.abilities[1].damage);
         }
 
+        public void GenjiSpecial()
+        {
+            this.damageTarget(this.abilities[2].damage);
+        }
+
+        public void cyberHeals()
+        {
+            this.setHp(this.getHp() + 3);
+        }
         //2 dmg/ shuriken
         // option 1 - throw suriken right away
         // option two - hold 1 more suriken for your turn. 

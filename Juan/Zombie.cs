@@ -6,11 +6,11 @@ namespace Juan
     {
         public Zombie() : base("Zombie", 10, 20)
         {
-            Ability zombieSpecial = new Ability("Special", 10, 19, 8, new Action(test));
-            Ability vommitShot = new Ability("vommit shot", 6, 7, 4, new Action(test));
+            Ability zombieSpecial = new Ability("Special", 10, 19, 8, new Action(Special));
+            Ability vommitShot = new Ability("vommit shot", 6, 7, 4, new Action(VomitShot));
             Ability bite = new Ability("bite", 4, 3, 1, new Action(Bite));
-
-            this.abilities = new Ability[] { bite, vommitShot, zombieSpecial };
+            Ability eatPeople = new Ability("eatPoople", 4, 0, 5, new Action(EatingPoople)); 
+            this.abilities = new Ability[] { bite, vommitShot, zombieSpecial, eatPeople };
             setupAbilities();
         }
         //swiftstrike
@@ -21,9 +21,19 @@ namespace Juan
             this.damageTarget(this.abilities[0].damage);
         }
 
-        public void test()
+        public void VomitShot()
         {
+            this.damageTarget(this.abilities[1].damage);
+        }
 
+        public void Special()
+        {
+            this.damageTarget(this.abilities[2].damage);
+        }
+
+        public void EatingPoople()
+        {
+            this.setHp(this.getHp() + 4);
         }
 
         //2 dmg/ shuriken

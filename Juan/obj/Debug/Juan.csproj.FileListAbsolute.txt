@@ -9,4 +9,5 @@ C:\Users\Student\Desktop\Juan-master\Juan\bin\Debug\Juan.exe
 C:\Users\Student\Desktop\Juan-master\Juan\bin\Debug\Juan.pdb
 C:\Users\Student\Desktop\Juan-master\Juan\obj\Debug\Juan.exe
 C:\Users\Student\Desktop\Juan-master\Juan\obj\Debug\Juan.pdb
-C:\Users\Student\Desktop\Juan-master\Juan\obj\Debug\Juan.csprojResolveAssemblyReference.cache
+C:\Users\Student\Desktop\Juan-master\Juan\obj\Debug\Juan.csprojAssemblyReference.cache
+C:\Users\Student\Desktop\Juan-master\Juan\obj\Debug\Juan.csproj.CoreCompileInputs.cache

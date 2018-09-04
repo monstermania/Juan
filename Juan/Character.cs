@@ -75,6 +75,26 @@ namespace Juan
             return target;
         }
 
+        public void setEnergy(int s_Energy)
+        {
+            energy = s_Energy;
+        }
+
+        public int getEnergy()
+        {
+            return energy;
+        }
+
+        public void setHp(int s_Hp)
+        {
+            HP = s_Hp;
+        }
+
+        public int getHp()
+        {
+            return HP;
+        }
+
         static private void test()
         {
             Console.WriteLine("BARF");

@@ -27,9 +27,10 @@ namespace Juan
 
             Character genji = new Genji();
             Character zombie = new Zombie();
+            Character stormtrooper = new stormtrooper();
         
 
-              characters = new Character[] { genji, zombie};
+              characters = new Character[] { genji, zombie, stormtrooper};
             
 
             StartupScreen();     // Done!
@@ -74,17 +75,13 @@ namespace Juan
         //    characters[1] = zombie;
         //}
 
-        static private void setUpDylan()
-        {
-            
-        }
-
+    
        
 
         static private void StartupScreen()
         {
-
-            rightCenterText("<==================================================>");
+            rightCenterText("<===================CrappyPokemon==================>");
+            rightCenterText("<==================================================>");//title/credits
             rightCenterText("<==============Made by: Zeeshan Asad ==============>");
             rightCenterText("<====Additonal people that helped me make this ====>");
             rightCenterText("<========My Dad, Bret, Dylan, and Fabricio=========>");
@@ -94,7 +91,7 @@ namespace Juan
             String startup = Console.ReadLine();
             if (startup != null)
             {
-                Console.Clear();
+                Console.Clear();//BOOM! Console clear on to the next scren 
             }
         }
 
@@ -124,7 +121,7 @@ namespace Juan
                     characters[1].printAbilities();
                     //charIndex = 1;
                     break;
-                case "dylan":
+                case "stormtrooper":
                     characters[2].printAbilities();
                     //charIndex = 2;
                     break;
@@ -133,6 +130,32 @@ namespace Juan
             }
 
         }
+
+
+        static private void pickPlayerOne()
+        {
+            Console.WriteLine("Player 1 - Pick your hero!");
+            Console.WriteLine("Choices~: zombie, genji, stormtrooper");
+            Console.WriteLine("Note: please type hero name EXACTLY as shown above.");
+            String p1Choice = Console.ReadLine();
+            if (heroValid(p1Choice))
+            {
+                Console.Clear();
+                //print abilities
+                ListAbilities(p1Choice);
+                //confirm your choice
+                p1 = heroConfirm(p1Choice) ? GetCharacter(p1Choice) : null;
+                //p1.target = p2;
+            }
+            else
+            {
+                pickPlayerOne();
+            }
+            Console.Clear();
+        }
+
+
+
 
         static private bool heroConfirm(string character)
         {
@@ -152,32 +175,10 @@ namespace Juan
 
 
 
-        static private void pickPlayerOne()
-        {
-            Console.WriteLine("Player 1 - Pick your hero!");
-            Console.WriteLine("Choices~: Zombie, Genji, Dylan");
-            Console.WriteLine("Note: please type hero name EXACTLY as shown above.");
-            String p1Choice = Console.ReadLine();
-            if (heroValid(p1Choice))
-            {
-                Console.Clear();
-                //print abilities
-                ListAbilities(p1Choice);
-                //confirm your choice
-                p1 = heroConfirm(p1Choice) ? GetCharacter(p1Choice) : null;
-                //p1.target = p2;
-            }
-            else
-            {
-                pickPlayerOne();
-            }
-            Console.Clear();
-        }
-
         static private void pickPlayerTwo()
         {
             Console.WriteLine("Player 2 - Pick your hero!");
-            Console.WriteLine("Choices~: Zombie, Genji");
+            Console.WriteLine("Choices~: zombie, genji, stormtrooper");
 
             String p2Choice = Console.ReadLine();
             if (heroValid(p2Choice))
@@ -194,10 +195,12 @@ namespace Juan
             Console.Clear();
         }
         
+
+
         static private bool heroValid(string p1)
         {
             p1 = p1.ToLower();
-            if (p1 == "zombie" || p1 == "genji" || p1 == "dylan")
+            if (p1 == "zombie" || p1 == "genji" || p1 == "stormtrooper")
             {
                 return true;
             }
@@ -208,6 +211,8 @@ namespace Juan
                 return false;
             }
         }
+
+
 
         static Character GetCharacter(string name)
         {
@@ -220,6 +225,8 @@ namespace Juan
 
             return null;
         }
+
+
 
         static private void battle()
         {
@@ -240,7 +247,10 @@ namespace Juan
 
                     Ability ability = p1.abilities[p1AbilityResponse - 1];  //save the chosen ability
                     ability.useAbility();    //use the ability
+                    p1.setEnergy(p1.getEnergy() + 2);
                 }
+
+
                 else
                 {
                     Console.WriteLine("player 2 turn");
@@ -252,6 +262,7 @@ namespace Juan
                     //to convert a stirn to an integer you have to write the integer int bob for example then an equal sign and then write Int32.Parse(Console.ReadLine)
                     Ability ability = p2.abilities[p2AbilityResponse - 1];  //save the chosen ability
                     ability.useAbility();    //use the ability
+                    p2.setEnergy(p2.getEnergy() + 2);
                 }
 
                 //Console.ReadLine();
@@ -259,20 +270,24 @@ namespace Juan
             }
         }
 
+
+
         static public void listHealthEnergy()
         {
             Console.WriteLine("Player One Health: " + p1.HP);
             Console.WriteLine("Player One Energy: " + p1.energy);
-            // Write a line here to make the thing look nice!
+            Console.WriteLine("<--------------------------------->");
             Console.WriteLine("Player Two Health: " + p2.HP);
             Console.WriteLine("Player Two Energy: " + p2.energy);
         }
+
+
 
         static private string validateAbilityInput()
         {
             string userinput = Console.ReadLine();
 
-            if (userinput == "1" || userinput == "2" || userinput == "3")
+            if (userinput == "1" || userinput == "2" || userinput == "3" || userinput == "4")
             {
                 return userinput;
             }
@@ -284,11 +299,15 @@ namespace Juan
 
         }
 
+
+
         static private void setTarget()
         {
             p1.target = p2;
             p2.target = p1;
         }
+        
+
 
         static private void end()
         {
