@@ -12,9 +12,10 @@ namespace Juan
     /// make so u cant pick the sam eguy OR if u are going to pick the same guy it can t be in the same instance of the character in the static characters list maybe time to go not static
     class Program
     {
-        static Character[] characters = new Character[2];
-        public static Character p1;
-        public  static Character p2;
+        public Character[] characters = new Character[2];
+        public  Character p1;
+        public  Character p2;
+        int turnsPast = 0;
 
         // 
 
@@ -23,15 +24,21 @@ namespace Juan
 
             //string n, int e, int hp
 
-          //  SetupCharacters();
+            //  SetupCharacters();
 
+            Program OverallProgram = new Program();
+            OverallProgram.overallProgram();
+        }
+
+        public void overallProgram()
+        {
             Character genji = new Genji();
             Character zombie = new Zombie();
             Character stormtrooper = new stormtrooper();
-        
 
-              characters = new Character[] { genji, zombie, stormtrooper};
-            
+
+            characters = new Character[] { genji, zombie, stormtrooper };
+
 
             StartupScreen();     // Done!
 
@@ -45,7 +52,6 @@ namespace Juan
 
             end();
 
-            
         }
 
         //static private void SetupCharacters()
@@ -70,15 +76,15 @@ namespace Juan
         //static private void setUpZombie()
         //{
         //    //Setup Zombie
-            
+
 
         //    characters[1] = zombie;
         //}
 
-    
-       
 
-        static private void StartupScreen()
+
+
+         private void StartupScreen()
         {
             rightCenterText("<===================CrappyPokemon==================>");
             rightCenterText("<==================================================>");//title/credits
@@ -94,8 +100,8 @@ namespace Juan
                 Console.Clear();//BOOM! Console clear on to the next scren 
             }
         }
-
-        static private void rightCenterText(string Juany)
+        
+         private void rightCenterText(string Juany)
         {
             // centers title screen
             string a = Juany;
@@ -103,12 +109,12 @@ namespace Juan
             Console.WriteLine(a);
         }
 
-        static private void home()
+         private void home()
         {
 
         }
 
-        static private void ListAbilities(string character)
+         private void ListAbilities(string character)
         {
             //int charIndex = 0;
             switch (character.ToLower())
@@ -132,7 +138,7 @@ namespace Juan
         }
 
 
-        static private void pickPlayerOne()
+         private void pickPlayerOne()
         {
             Console.WriteLine("Player 1 - Pick your hero!");
             Console.WriteLine("Choices~: zombie, genji, stormtrooper");
@@ -157,7 +163,7 @@ namespace Juan
 
 
 
-        static private bool heroConfirm(string character)
+         private bool heroConfirm(string character)
         {
 
            Console.WriteLine("Are you sure you want to choose " + character + "? y/n");
@@ -175,7 +181,7 @@ namespace Juan
 
 
 
-        static private void pickPlayerTwo()
+         private void pickPlayerTwo()
         {
             Console.WriteLine("Player 2 - Pick your hero!");
             Console.WriteLine("Choices~: zombie, genji, stormtrooper");
@@ -197,7 +203,7 @@ namespace Juan
         
 
 
-        static private bool heroValid(string p1)
+         private bool heroValid(string p1)
         {
             p1 = p1.ToLower();
             if (p1 == "zombie" || p1 == "genji" || p1 == "stormtrooper")
@@ -214,7 +220,7 @@ namespace Juan
 
 
 
-        static Character GetCharacter(string name)
+         Character GetCharacter(string name)
         {
             foreach(Character c in characters){
                 if(c.name.ToLower() == name)
@@ -228,7 +234,7 @@ namespace Juan
 
 
 
-        static private void battle()
+         private void battle()
         {
 
             bool p1Turn = true;
@@ -247,7 +253,7 @@ namespace Juan
 
                     Ability ability = p1.abilities[p1AbilityResponse - 1];  //save the chosen ability
                     ability.useAbility();    //use the ability
-                    p1.setEnergy(p1.getEnergy() + 2);
+                    p1.setEnergy(p1.getEnergy() + 3);
                 }
 
 
@@ -261,19 +267,32 @@ namespace Juan
 
                     //to convert a stirn to an integer you have to write the integer int bob for example then an equal sign and then write Int32.Parse(Console.ReadLine)
                     Ability ability = p2.abilities[p2AbilityResponse - 1];  //save the chosen ability
+
+                    if()
+                    {
+
+                    }
+
+
                     ability.useAbility();    //use the ability
-                    p2.setEnergy(p2.getEnergy() + 2);
+                    p2.setEnergy(p2.getEnergy() + 3);
                 }
 
                 //Console.ReadLine();
                 p1Turn = !p1Turn;
+                turnsPast++;
+                
             }
         }
+        //if()
+        //{
+       // 
+        //}
 
 
-
-        static public void listHealthEnergy()
-        {
+         public void listHealthEnergy()
+        { 
+            Console.WriteLine("Turn Counter : "     + turnsPast);
             Console.WriteLine("Player One Health: " + p1.HP);
             Console.WriteLine("Player One Energy: " + p1.energy);
             Console.WriteLine("<--------------------------------->");
@@ -283,7 +302,7 @@ namespace Juan
 
 
 
-        static private string validateAbilityInput()
+         private string validateAbilityInput()
         {
             string userinput = Console.ReadLine();
 
@@ -301,15 +320,16 @@ namespace Juan
 
 
 
-        static private void setTarget()
+         private void setTarget()
         {
             p1.target = p2;
             p2.target = p1;
         }
         
 
+        // static memory and dynamic memory or stac and heap diffrent most of the program should be in dynamic memory. but static memory has a few uses such as math classes and other utility classes.
 
-        static private void end()
+         private void end()
         {
 
         }

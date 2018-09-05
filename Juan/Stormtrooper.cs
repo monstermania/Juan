@@ -8,7 +8,7 @@ namespace Juan
         {
             Ability aimBot= new Ability("aimbot", 10, 19, 8, new Action(StormtrooperSpecial));
             Ability pistolWhip = new Ability("pistolWhip", 6, 7, 4, new Action(PistolWhip));
-            Ability pewPew = new Ability("pewpewBlast", 4, 3, 1, new Action(pewPewBlast));
+            Ability pewPew = new Ability("pewpewBlast", 3, 4, 1, new Action(pewPewBlast));
             Ability healingMelee = new Ability("bioticSlap", 4, 0, 5, new Action(healingSlap));
             this.abilities = new Ability[] { pewPew, pistolWhip, aimBot, healingMelee };
             setupAbilities();
